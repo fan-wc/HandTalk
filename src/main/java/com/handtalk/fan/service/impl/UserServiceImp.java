@@ -29,7 +29,7 @@ public class UserServiceImp implements UserService {
         if (regdUser == null){
             if(user.getUserPwd().equals(user.getPasswordConfirm())){
                 userDao.addUser(user);
-                msg = "注册出成功";
+                msg = "注册成功";
                 regUser = userDao.getUser(user);
             }else {
                 msg = "两次密码不一致";

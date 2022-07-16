@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.example</groupId>
-    <artifactId>AixinMarket</artifactId>
+    <artifactId>HandTalk</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
@@ -107,7 +107,8 @@
       <dependency>
         <groupId>mysql</groupId>
         <artifactId>mysql-connector-java</artifactId>
-        <version>5.1.30</version>
+        <version>8.0.12</version>
+        <scope>runtime</scope>
       </dependency>
       <!-- c3p0数据库连接池 -->
       <dependency>
@@ -212,7 +213,7 @@
     </dependencies>
 
     <build>
-      <finalName>AixinMarket</finalName>
+      <finalName>HandTalk</finalName>
       <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
         <plugins>
           <plugin>
@@ -250,11 +251,18 @@
         <resource>
           <directory>src/main/java</directory>
           <includes>
+            <include>**/*.properties</include>
             <include>**/*.xml</include>
           </includes>
+          <filtering>false</filtering>
         </resource>
         <resource>
           <directory>src/main/resources</directory>
+          <includes>
+            <include>**/*.properties</include>
+            <include>**/*.xml</include>
+          </includes>
+          <filtering>false</filtering>
         </resource>
       </resources>
     </build>

@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.bluemsun.dao.UserDao">
+<mapper namespace="com.handtalk.fan.dao.UserDao">
     <resultMap id="studentMap" type="com.handtalk.fan.models.User">
         <id column="id" property="id"/>
         <result column="user_name" property="userName"/>
@@ -22,12 +22,12 @@
             <if test="id != null"> id = #{id}</if>
         </where>
     </delete>
-    <select id="getUser" parameterType="com.handtalk.fan.models.User">
-        SELECT * FROM tb_user
-        <where>
-            <if test="id != null">id = #{id}</if>
-            <if test="userPhone != null">user_phone = #{userPhone}</if>
-            <if test="userEmail != null">user_email = #{userEmail}</if>
-        </where>
+    <select id="getUser" parameterType="com.handtalk.fan.models.User" resultType="com.handtalk.fan.models.User">
+        SELECT * FROM tb_user WHERE user_email = #{userEmail}
+<!--        <where>-->
+<!--            <if test="id != null">id = #{id}</if>-->
+<!--            <if test="userPhone != null">user_phone = #{userPhone}</if>-->
+<!--            <if test="userEmail != null">user_email = #{userEmail}</if>-->
+<!--        </where>-->
     </select>
 </mapper>
