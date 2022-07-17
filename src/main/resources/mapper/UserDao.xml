@@ -23,11 +23,11 @@
         </where>
     </delete>
     <select id="getUser" parameterType="com.handtalk.fan.models.User" resultType="com.handtalk.fan.models.User">
-        SELECT * FROM tb_user WHERE user_email = #{userEmail}
-<!--        <where>-->
-<!--            <if test="id != null">id = #{id}</if>-->
-<!--            <if test="userPhone != null">user_phone = #{userPhone}</if>-->
-<!--            <if test="userEmail != null">user_email = #{userEmail}</if>-->
-<!--        </where>-->
+        SELECT * FROM tb_user
+        <where>
+            <if test="id != null">id = #{id}</if>
+            <if test="userPhone != null"> OR user_phone = #{userPhone}</if>
+            <if test="userEmail != null"> OR user_email = #{userEmail}</if>
+        </where>
     </select>
 </mapper>

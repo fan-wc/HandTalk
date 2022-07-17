@@ -16,8 +16,33 @@ public class UserServiceImp implements UserService {
     UserDao userDao;
 
     @Override
-    public User userLogin(String passwordOrEmail, String passwordOrCode) {
-        return null;
+    public Map userLogin(String phoneOrEmail, String passwordOrCode) {
+        Map resMap = new HashMap();
+        User user = new User();
+        user.setId(0);
+        String msg = null;
+        if (phoneOrEmail.endsWith("com")){
+            user.setUserEmail(phoneOrEmail);
+        }else {
+            user.setUserPhone(phoneOrEmail);
+        }
+        System.out.println(user.toString());
+        User regUser = userDao.getUser(user);
+        if (regUser == null){
+            msg = "该手机号或邮箱未注册";
+            resMap.put("user",null);
+        }else {
+            if (regUser.getUserPwd().equals(passwordOrCode)){
+                msg = "登陆成功";
+                regUser.setUserPwd("****************************");
+                resMap.put("user",regUser);
+            }else {
+                msg = "密码错误";
+                resMap.put("user",null);
+            }
+        }
+        resMap.put("msg",msg);
+        return resMap;
     }
 
     @Override

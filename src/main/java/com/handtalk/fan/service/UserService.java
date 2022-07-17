@@ -8,7 +8,7 @@ import java.util.Map;
 
 @Service
 public interface UserService {
-    public User  userLogin(String passwordOrEmail, String passwordOrCode);
+    public Map userLogin(String passwordOrEmail, String passwordOrCode);
     public Map userRegister(User user);
     public Map userRegisterByCode(User user, HttpServletRequest request);
     public User updateUser(User user);

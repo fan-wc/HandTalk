@@ -86,4 +86,19 @@ public class User {
     public void setVideoList(List<String> videoList) {
         this.videoList = videoList;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "userName='" + userName + '\'' +
+                ", userPhone='" + userPhone + '\'' +
+                ", userPwd='" + userPwd + '\'' +
+                ", passwordConfirm='" + passwordConfirm + '\'' +
+                ", userEmail='" + userEmail + '\'' +
+                ", code='" + code + '\'' +
+                ", imgs='" + imgs + '\'' +
+                ", id=" + id +
+                ", videoList=" + videoList +
+                '}';
+    }
 }

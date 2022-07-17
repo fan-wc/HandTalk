@@ -236,6 +236,37 @@
       <artifactId>tea</artifactId>
       <version>1.1.14</version>
     </dependency>
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-project</artifactId>
+      <version>2.2.1</version>
+    </dependency>
+      <!--阿里云短信 -->
+      <dependency>
+        <groupId>com.aliyun</groupId>
+        <artifactId>dysmsapi20170525</artifactId>
+        <version>2.0.16</version>
+      </dependency>
+      <dependency>
+        <groupId>com.aliyun</groupId>
+        <artifactId>aliyun-java-sdk-core</artifactId>
+        <version>4.1.0</version>
+        <exclusions>
+          <exclusion>
+            <artifactId>commons-codec</artifactId>
+            <groupId>commons-codec</groupId>
+          </exclusion>
+          <exclusion>
+            <artifactId>activation</artifactId>
+            <groupId>javax.activation</groupId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+      <dependency>
+        <groupId>com.aliyun</groupId>
+        <artifactId>aliyun-java-sdk-dysmsapi</artifactId>
+        <version>1.1.0</version>
+      </dependency>
     </dependencies>
 
     <build>
